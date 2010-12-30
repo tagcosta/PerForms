@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PerForms</name>
+    </assembly>
+    <members>
+        <member name="P:PerForms.Actions.ShowFormAction.Form">
+            <summary>
+            <para>The javascript responsible for creating a PerForm.</para>
+            </summary>
+        </member>
+        <member name="T:PerForms.StressTool">
+            <summary>
+            <para>Class created to call an ajax method x number of times synchronously or asynchronously.</para>
+            </summary>
+        </member>
+        <member name="T:PerForms.FormService">
+            <summary>
+            <para>This class serves as a base class to Custom_PerFormsService.</para>
+            <para>It defines what methods you must implement and provides a variety of helper methods you can override.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetAJAXActions(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            <para>This method serves the purpose of allowing interaction between the server and the client via AJAX.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.IsAuthenticated">
+            <summary>
+            <para>All interactions automatically call this method to force validation (ex: session might have timed out).</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetCurrentUser">
+            <summary>
+            <para>This method should return an identifier for a user. It is used to persist logging information.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetQuery(System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.String@)">
+            <summary>
+            <para>Used in FieldGridViews, when you want server-side paging, sorting and filtering.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.Select(System.String)">
+            <summary>
+            <para>Executes a query using the ConnectionString configured in DBConfig.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetSelectedValues(System.String[],System.String[])">
+            <summary>
+            <para>Converts arrays of keys and values to a dictionary.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetSelectedID(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.String)">
+            <summary>
+            <para>Gets the given key of the dictionary as an int.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetSelectedID(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            <para>Gets the first element of the dictionary as an int.</para>
+            <para>Can be used in GetAJAXUpdateItems to get the combobox's selected key.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetSelectedValue(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.String)">
+            <summary>
+            <para>Gets the given key of the dictionary as a string.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetSelectedValue(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}})">
+            <summary>
+            <para>Gets the first element of the dictionary as a string.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.LogException(System.Exception,PerForms.Logging.ActionLog)">
+            <summary>
+            <para>Log an exception in the database.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.LogAction(System.String,System.String[],System.String[],System.String)">
+            <summary>
+            <para>Log an action in the database.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.LogActionOperationTime(PerForms.Logging.ActionLog)">
+            <summary>
+            <para>Updates the database with the time it took for the action to complete.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.FormService.GetActionLog(System.String,System.String[],System.String[],System.String)">
+            <summary>
+            <para>Creates a new ActionLog.</para>
+            </summary>
+        </member>
+        <member name="P:PerForms.Actions.RedirectToURLAction.RedirectToURL">
+            <summary>
+            <para>The URL which the browser should redirect to.</para>
+            </summary>
+        </member>
+        <member name="T:PerForms.Actions.AJAXActions">
+            <summary>
+            <para>This class represents the object that is returned on each AJAX interaction.</para>
+            <para>The purpose is to have a standard way of showing forms, messages, redirecting, etc.</para>
+            <para>Note that you can execute more than one action in the same interaction.</para>
+            </summary>
+        </member>
+        <member name="P:PerForms.Actions.UpdateItemsAction.KeyValues">
+            <summary>
+            <para>An array of Key, Value pairs used to replace the items of a ComboBox or MultiSelectBox.</para>
+            </summary>
+        </member>
+        <member name="P:PerForms.Actions.ShowMessageAction.MessageType">
+            <summary>
+            <para>The type of the message to show.</para>
+            <para>The type only affects the appearance of the message.</para>
+            </summary>
+        </member>
+        <member name="P:PerForms.Actions.ShowMessageAction.MessageContent">
+            <summary>
+            <para>The content of the message.</para>
+            <para>You can use html.</para>
+            </summary>
+        </member>
+        <member name="P:PerForms.Actions.ShowMessageAction.MessageTitle">
+            <summary>
+            <para>The title of the message.</para>
+            <para>Renders in the header of the message.</para>
+            <para>If empty, the message will still have a header but with no text on it.</para>
+            </summary>
+        </member>
+        <member name="P:PerForms.Actions.ShowMessageAction.MessageSubtitle">
+            <summary>
+            <para>The subtitle of the message. You can leave this empty.</para>
+            <para>Renders in the form of '<b>subtitle:</b> content'.</para>
+            </summary>
+        </member>
+        <member name="T:PerForms.Actions.ShowMessageAction.EMessageType">
+            <summary>
+            <para>Allowed types of messages.</para>
+            </summary>
+        </member>
+        <member name="T:PerForms.PrForm">
+            <summary>
+            <para>This class represents a PerForm.</para>
+            <para>If you are using ASP.NET WebForms you should set 'EnableViewState' to false on the LiteralControl containing this form.</para>
+            <para>It is the only entry point to creating a new form.</para>
+            <para>Contains all properties of the form, its fields, interactions, etc.</para>
+            <para>All forms should be identified by an unique key.</para>
+            <para>This allows you to have multiple forms in the same page without they interfering with each other.</para>
+            <para>You cannot have nested forms (forms inside other forms).</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.PrForm.#ctor(System.String)">
+            <summary>
+            <para>Initializes the form with the default values.</para>
+            <para>Minimum form width is 100%, label width is 0 (least ammount possible).</para>
+            <para>Header and footer are empty and will not be rendered.</para>
+            </summary>
+            <param name="formKey">Unique identifier of the form.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PerForms.PrForm.SetHeader(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:PerForms.PrForm.SetFooter(System.String)" -->
+        <member name="M:PerForms.PrForm.SetMinWidth(System.String)">
+            <summary>
+            <para>This method sets the minimum width of the form.</para>
+            <para>The value can be either in pixels or percentage, for example, "100px" or "100%".</para>
+            <para>If you don't specify the unit, for example, "100", it defaults to pixels.</para>
+            <para>Default is "100%".</para>
+            <para>You can pass "0" if you want the form to ocupy the least ammount of space possible.</para>
+            </summary>
+            <param name="minWidth">Width in pixels or percentage.</param>
+        </member>
+        <member name="M:PerForms.PrForm.SetLabelWidth(System.String)">
+            <summary>
+            <para>This method sets the minimum width of each label in the form.</para>
+            <para>The value can be either in pixels or percentage, for example, "100px" or "100%".</para>
+            <para>If you don't specify the unit, for example, "100", it defaults to pixels.</para>
+            <para>You can pass "0" if you want the label to ocupy the least ammount of space possible.</para>
+            <para>Default is "0".</para>
+            <para>If you use validations, setting the label width to a percentage might not be a good idea because the content will stretch/shrink when displaying/hiding the validation message.</para>
+            </summary>
+            <param name="minWidth">Width in pixels or percentage.</param>
+        </member>
+        <member name="M:PerForms.PrForm.AddGroup(System.String,System.String[])">
+            <summary>
+            <para>Groups of fields are logical.</para>
+            <para>They are used if you want to do partial submits or other types of interactions where you don't want the whole form to be affected.</para>
+            <para>By default, each form has a group called 'ALL' with all fields and a group for each field with the same key as that field key.</para>
+            <para>Groups will not affect the way fields are rendered.</para>
+            </summary>
+            <param name="groupKey">Unique identifier of the group.</param>
+            <param name="fieldKeys">Comma separated list of field keys that should belong to this group.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)">
+            <summary>
+            <para>Base method for adding a field to the form.</para>
+            <para>Specific methods for adding fields call this method.</para>
+            <para>You should call the specific methods unless you want to do some secret magic with the fields.</para>
+            <para>Each field is identified by an unique key. You cannot have two fields with the same key in this form.</para>
+            <para>Each field has a label of text rendered in the left and the content itself rendered in the right.</para>
+            <para>The alignment of the form is based on that virtual line that separates label from content.</para>
+            <para>You can pass '', as the label, if you want the field itself to occupy the whole line or ' ' if you want the content aligned with the right but with no label.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldText(System.String,System.String)">
+            <summary>
+            <para>Add a new FieldText to the form.</para>
+            <para>FieldText resembles ASP.NET WebForms TextBoxes.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldTextArea(System.String,System.String)">
+            <summary>
+            <para>Add a new FieldTextArea to the form.</para>
+            <para>FieldTextArea resembles ASP.NET WebForms TextBoxes with the TextMode set to MultiLine.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldComboBox(System.String,System.String,System.Collections.Generic.List{PerForms.Util.KeyValue})">
+            <summary>
+            <para>Add a new FieldComboBox to the form.</para>
+            <para>FieldComboBox renders a 'select' html element with autocomplete.</para>
+            <para>The user can only choose one option among the available ones.</para>
+            <para>You can use the 'AJAXUpdateItems' interaction if you have dependent ComboBoxes (ex: Make and Model).</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldComboBox(System.String,System.String,System.Data.DataTable,System.String,System.String)">
+            <summary>
+            <para>This overload allows you to create a FieldComboBox based on a DataTable instead of a List of KeyValues.</para>
+            <para>You must specify which column of the DataTable should be considered the Key and which should be considered the Value.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldComboBox(System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldComboBox(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            <para>This overload allows you to create a FieldComboBox based on a DataTable instead of a List of KeyValues.</para>
+            <para>If the DataTable only has one column, it will be used as both the Key and the Value.</para>
+            <para>Otherwise, the first column is considered to be the Key and the second column the Value.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldComboBox(System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldButton(System.String,System.String)">
+            <summary>
+            <para>Add a new FieldButton to the form.</para>
+            <para>Usually used for submitting the entire form or part of it, or getting a new form (when you have a form that depends on user input).</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldRadios(System.String,System.String,System.Collections.Generic.List{PerForms.Util.KeyValue})">
+            <summary>
+            <para>Add a new FieldRadios to the form.</para>
+            <para>You can use this field to show/hide parts of the form on the client-side.</para>
+            <para>If there are a considerable ammount of items, you might consider using a FieldComboBox instead.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldRadios(System.String,System.String,System.Data.DataTable,System.String,System.String)">
+            <summary>
+            <para>This overload allows you to create a FieldRadios based on a DataTable instead of a List of KeyValues.</para>
+            <para>You must specify which column of the DataTable should be considered the Key and which should be considered the Value.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldRadios(System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldRadios(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            <para>This overload allows you to create a FieldRadios based on a DataTable instead of a List of KeyValues.</para>
+            <para>If the DataTable only has one column, it will be used as both the Key and the Value.</para>
+            <para>Otherwise, the first column is considered to be the Key and the second column the Value.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldRadios(System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldCheckBoxes(System.String,System.String,System.Collections.Generic.List{PerForms.Util.KeyValue})">
+            <summary>
+            <para>Add a new FieldCheckBoxes to the form.</para>
+            <para>If there are a considerable ammount of items, you might consider using a FieldMultiSelectBox instead.</para>
+            <para>If there is only one item, you might consider using a FieldRadios with two items instead.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldCheckBoxes(System.String,System.String,System.Data.DataTable,System.String,System.String)">
+            <summary>
+            <para>This overload allows you to create a FieldCheckBoxes based on a DataTable instead of a List of KeyValues.</para>
+            <para>You must specify which column of the DataTable should be considered the Key and which should be considered the Value.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldCheckBoxes(System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldCheckBoxes(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            <para>This overload allows you to create a FieldCheckBoxes based on a DataTable instead of a List of KeyValues.</para>
+            <para>If the DataTable only has one column, it will be used as both the Key and the Value.</para>
+            <para>Otherwise, the first column is considered to be the Key and the second column the Value.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldCheckBoxes(System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldMultiSelectBox(System.String,System.String,System.Collections.Generic.List{PerForms.Util.KeyValue})">
+            <summary>
+            <para>Add a new FieldMultiSelectBox to the form.</para>
+            <para>Renders a control that allows the user to select multiple items from a predefined list with autocomplete.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldMultiSelectBox(System.String,System.String,System.Data.DataTable,System.String,System.String)">
+            <summary>
+            <para>This overload allows you to create a FieldMultiSelectBox based on a DataTable instead of a List of KeyValues.</para>
+            <para>You must specify which column of the DataTable should be considered the Key and which should be considered the Value.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldMultiSelectBox(System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldMultiSelectBox(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            <para>This overload allows you to create a FieldMultiSelectBox based on a DataTable instead of a List of KeyValues.</para>
+            <para>If the DataTable only has one column, it will be used as both the Key and the Value.</para>
+            <para>Otherwise, the first column is considered to be the Key and the second column the Value.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldMultiSelectBox(System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldGridView(System.String,System.String,PerForms.FormService,System.Boolean,System.String)">
+            <summary>
+            <para>Add a new FieldGridView to the form.</para>
+            <para>This field is used to display tabular data to the user. Selecting or multi-selecting, paging, sorting, filtering and exporting to excel is builtin client and server side.</para>
+            <para>You can use this field to select one or multiple items.</para>
+            <para>By default, this field renders with the label set as ''. You can change that by calling 'SetFieldLabel'.</para>
+            </summary>
+            <param name="formService">You should pass 'this' if you are calling it from Custom_PerFormsService or an instance of Custom_PerFormsService if somewhere else.</param>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldGridView(System.String,System.Data.DataTable,System.String)">
+            <summary>
+            <para>This overload allows you to create a FieldGridView based on a DataTable.</para>
+            <para>The gridview will be client-side and you won't have the export to excel feature.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldGridView(System.String,System.String,PerForms.FormService,System.Boolean,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldLabel(System.String,System.String,System.String)">
+            <summary>
+            <para>Add a new FieldLabel to the form.</para>
+            <para>Used to display read-only text to the user. You can use html.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldDate(System.String,System.String)">
+            <summary>
+            <para>Add a new FieldDate to the form.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldUpload(System.String,System.String)">
+            <summary>
+            <para>Add a new FieldUpload to the form.</para>
+            <para>Allows multi-uploads.</para>
+            <para>All uploads will be placed in /PerForms/Uploads and the file name will be changed to a guid.</para>
+            <para>On submits, the list of values for this field will be the guid and the original filename (2 strings for each upload).</para>
+            <para>There are helpers methods you can call from Custom_PerFormsService to get and delete the uploads.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldFree(System.String,System.String,System.String)">
+            <summary>
+            <para>Add a new FieldFree to the form.</para>
+            <para>This field is used to render custom html to the client.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddField(PerForms.Fields.PrField)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldFree(System.String,System.String,System.Web.UI.Control)">
+            <summary>
+            <para>This overload allows sending any type of Control to the form.</para>
+            <para>Note that PerForms doesn't use viewstate, controls that rely on viewstate won't work.</para>
+            </summary>
+            <seealso cref="M:PerForms.PrForm.AddFieldFree(System.String,System.String,System.String)"/>
+        </member>
+        <member name="M:PerForms.PrForm.AddFieldPlaceHolder(System.String)">
+            <summary>
+            <para>This field allows executing javascript code between the creation of the fields.</para>
+            <para>The framework uses it to create tabs.</para>
+            <para>You should use it only if you reaaaaaaaally know what you are doing.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.PrForm.AddTab(System.String)">
+            <summary>
+            <para>Add a new tab.</para>
+            <para>Should be called right after calling AddTabArea.</para>
+            <para>Any field you add after calling this method, will be inside this tab.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.PrForm.AddTabArea">
+            <summary>
+            <para>Add a new tab area.</para>
+            <para>You should call AddTab after this.</para>
+            <para>You can have nested TabAreas, but make sure each TabArea except the first is contained in a tab.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.PrForm.EndTab">
+            <summary>
+            <para>Mark the end of a tab.</para>
+            <para>If this is the last tab of the tabarea, you should call EndTabArea next.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.PrForm.EndTabArea">
+            <summary>
+            <para>Mark the end of a tab area.</para>
+            <para>Before calling this method, make sure you called EndTab first.</para>
+            </summary>
+        </member>
+        <member name="M:PerForms.PrForm.RenderForm">
+            <summary>
+            <para>This is where all the magic happens.</para>
+            </summary>
+        </member>
+        <member name="P:PerForms.PrForm.FormKey">
+            <summary>
+            <para>This variable 'getter' is internal because most fields will need to read its value to render the interactions.</para>
+            </summary>
+        </member>
+        <member name="P:PerForms.PrForm.OnFormReady">
+            <summary>
+            <para>This variable is internal because it can be used by each field to render interactions.</para>
+            <para>Each field should only add to the existing string (OnFormReady += '';). Never replace it.</para>
+            </summary>
+        </member>
+    </members>
+</doc>

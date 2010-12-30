@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="PerForms" namespace="PerForms.Logging">
+  <class name="ActionLog" table="PrFActionLog">
+    <id name="ID" column="ID">
+      <generator class="native"></generator>
+    </id>
+    <property name="Milliseconds" column="Milliseconds" />
+    <property name="ActionKey" column="ActionKey" />
+    <property name="UserKey" column="UserKey" />
+    <property name="Date" column="Date" />
+    <bag name="ActionLogParameters" table="`ActionLogParameter`" inverse="true" cascade="all-delete-orphan">
+      <key column="ID" />
+      <one-to-many class="ActionLogParameter" />
+    </bag>
+  </class>
+</hibernate-mapping>

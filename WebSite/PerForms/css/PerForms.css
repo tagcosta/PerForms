@@ -1,0 +1,112 @@
+﻿/* JQuery UI */
+.ui-widget
+{
+    font-size: 11px;
+}
+.ui-autocomplete
+{
+    width: 253px;
+}
+.ui-dialog-title
+{
+    float:none !important;
+    display: block;
+    text-align: center;
+}
+/* *** */
+
+/* Autocomplete MaxHeight */
+.ui-autocomplete { overflow-y: auto; }
+* html .ui-autocomplete { /* IE max- */height: expression( this.scrollHeight > 200 ? "200px" : "auto" ); }
+.ui-autocomplete { max-height: 200px; }
+/* *** */
+
+/* Combobox Button */
+.performs-form .ui-button.icon-only .ui-button.text { padding: 0.35em; }
+/* *** */
+
+/* Combobox Button Position Fix (IE 6) */
+* html .performs-field-fieldcombobox span.ui-state-default { margin-top: 1px; }
+/* *** */
+
+/* FieldDate Button Position Fix (IE 6) */
+* html .performs-field-fielddate span.ui-state-default { margin-top: 1px; }
+/* *** */
+
+/* MultiSelect */
+.performs-field-fieldmultiselectbox .multiselect { width: 600px; height: 200px; }
+/* *** */
+
+/* PerForms */
+.performs-form-header, .performs-form-footer
+{
+    padding: 10px;
+    letter-spacing: 3px;
+    text-align: center;
+    border: 0;
+}
+.performs-form-content
+{
+    padding: 10px 10px 10px 10px;
+}
+.performs-field-label
+{
+    padding: 5px;
+    text-align: right;
+}
+.performs-field-fieldtext-input
+{
+    padding: 5px;
+    width: 250px;
+}
+.performs-field-fieldtextarea-textarea
+{
+    padding: 5px;
+    width: 250px;
+    height: 120px;
+}
+.performs-field-fieldcombobox-input
+{
+    padding: 5px;
+    width: 220px;
+}
+.performs-field-fieldcombobox .performs-field-message
+{
+    padding-left: 30px;
+}
+.performs-field-fielddate-input
+{
+    padding: 5px;
+    width: 220px;
+}
+.performs-field-fielddate .performs-field-message
+{
+    padding-left: 30px;
+}
+
+/* *************** */
+
+/* Remove Tabs Background */
+.performs-form .ui-tabs-nav
+{
+    border: 0 !important;
+    background: none !important;
+}
+.performs-form .ui-tabs-selected
+{
+    background: none !important;
+}
+
+/* Center Tabs */
+.performs-form .ui-tabs .ui-tabs-nav { float: none; text-align: center; }
+.performs-form .ui-tabs .ui-tabs-nav li { float: none; display: inline; padding: 5px; }
+.performs-form .ui-tabs .ui-tabs-nav li a { float: none; }
+/*\*//*/
+.performs-form .ui-tabs .ui-tabs-nav li a { display: inline-block; white-space: nowrap;
+width: 1px; }
+.performs-form .ui-tabs .ui-tabs-nav { padding-bottom: 0; margin-bottom: -1px; }
+/**/
+/*\*/
+* html .performs-form .ui-tabs .ui-tabs-nav li a { padding: 0; }
+/**/
+// -->

@@ -1,0 +1,92 @@
+(function (a) {
+    a.jgrid = {
+        defaults: {
+            recordtext: "Registos {0} a {1} de {2}",
+            emptyrecords: "Sem registos",
+            loadtext: "A carregar...",
+            pgtext: "Página {0} de {1}"
+        },
+        search: {
+            caption: "Procurar...",
+            Find: "Procurar",
+            Reset: "Limpar",
+            odata: ["igual",
+                 "diferente",
+                 "menor",
+                 "menor ou igual",
+                 "maior",
+                 "maior ou igual",
+                 "começa com",
+                 "não começa com",
+                 "está em",
+                 "não está em",
+                 "acaba com",
+                 "não acaba com",
+                 "contém",
+                 "não contém"],
+            groupOps: [{ op: "AND", text: "todas as" }, { op: "OR", text: "qualquer uma das"}],
+            matchText: " &nbsp;procurar", rulesText: " regras"
+        },
+        edit: { addCaption: "Adicionar Registo",
+            editCaption: "Modificar Registo",
+            bSubmit: "Submeter",
+            bCancel: "Cancelar",
+            bClose: "Fechar",
+            saveData: "A data foi alterada, guardar alterações?",
+            bYes: "Sim",
+            bNo: "Não",
+            bExit: "Cancelar",
+            msg: { required: "Campo obrigatório",
+                number: "Por favor, introduza um número",
+                minValue: "O valor deve ser maior ou igual que",
+                maxValue: "O valor deve ser menor ou igual a",
+                email: "Não é um endereço de email válido",
+                integer: "Por favor, introduza um número inteiro",
+                url: "não é um URL válido. O prefixo é obrigatório ('http://' ou 'https://')",
+                nodefined: " não está definido!",
+                novalue: " valor de retorno obrigatório!",
+                customarray: "A função customizada deverá retornar um array!",
+                customfcheck: "A função customizada deverá estar presente em validações customizadas!"
+            }
+        },
+        view: { caption: "Ver Registo", bClose: "Fechar" },
+        del: { caption: "Eliminar",
+            msg: "Deseja eliminar o(s) registo(s) seleccionado(s)?",
+            bSubmit: "Eliminar",
+            bCancel: "Cancelar"
+        },
+        nav: { edittext: " ",
+            edittitle: "Modificar registo seleccionado",
+            addtext: " ",
+            addtitle: "Adicionar novo registo",
+            deltext: " ",
+            deltitle: "Eliminar registo seleccionado",
+            searchtext: " ",
+            searchtitle: "Procurar",
+            refreshtext: "",
+            refreshtitle: "Actualizar",
+            alertcap: "Aviso",
+            alerttext: "Por favor, seleccione um registo",
+            viewtext: "",
+            viewtitle: "Ver registo seleccionado."
+        },
+        col: { caption: "Mostrar/Ocultar Colunas",
+            bSubmit: "Enviar",
+            bCancel: "Cancelar"
+        },
+        errors: { errcap: "Erro",
+            nourl: "Não especificou um url",
+            norecords: "Não existem dados para processar",
+            model: "Tamanho do colNames <> colModel!"
+        },
+        formatter: { integer: { thousandsSeparator: " ", defaultValue: "0" },
+            number: { decimalSeparator: ".", thousandsSeparator: " ", decimalPlaces: 2, defaultValue: "0.00" },
+            currency: { decimalSeparator: ".", thousandsSeparator: " ", decimalPlaces: 2, prefix: "", suffix: "", defaultValue: "0.00" },
+            date: { dayNames: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"],
+                monthNames: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+                AmPm: ["am", "pm", "AM", "PM"],
+                S: function (b) { return b < 11 || b > 13 ? ["�", "�", "�", "�"][Math.min((b - 1) % 10, 3)] : "�" }, srcformat: "Y-m-d", newformat: "d/m/Y", masks: { ISO8601Long: "Y-m-d H:i:s", ISO8601Short: "Y-m-d", ShortDate: "n/j/Y", LongDate: "l, F d, Y", FullDateTime: "l, F d, Y g:i:s A", MonthDay: "F d", ShortTime: "g:i A", LongTime: "g:i:s A", SortableDateTime: "Y-m-d\\TH:i:s", UniversalSortableDateTime: "Y-m-d H:i:sO", YearMonth: "F, Y" }, reformatAfterEdit: false
+            }, baseLinkUrl: "", showAction: "", target: "", checkbox: { disabled: true }, idName: "id"
+        }
+    }
+})(jQuery);

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A253ACEC-BC58-4DA0-AC04-FD78EE0C452A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PerForms</RootNamespace>
+    <AssemblyName>PerForms</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\PerForms.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\Lib\NHibernate\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Lib\NHibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\Lib\NHibernate\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Lib\NHibernate\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Lib\NewtonSoftJSON\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\Lib\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\Lib\NHibernate\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache">
+      <HintPath>..\Lib\NHibernate\NHibernate.Caches.SysCache.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Lib\NPOI\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\AJAXAction.cs" />
+    <Compile Include="Actions\RedirectToURLAction.cs" />
+    <Compile Include="Actions\SetValuesAction.cs" />
+    <Compile Include="Actions\ShowFormAction.cs" />
+    <Compile Include="Actions\ShowMessageAction.cs" />
+    <Compile Include="Actions\UpdateItemsAction.cs" />
+    <Compile Include="Config\AppConfig.cs" />
+    <Compile Include="Config\DBConfig.cs" />
+    <Compile Include="Config\EmailConfig.cs" />
+    <Compile Include="Config\PerFormsConfig.cs" />
+    <Compile Include="Fields\PrFieldFree.cs" />
+    <Compile Include="Fields\PrFieldPlaceHolder.cs" />
+    <Compile Include="Fields\PrFieldUpload.cs" />
+    <Compile Include="Filters\FieldNameEscaper.cs" />
+    <Compile Include="Util\BrowserDetector.cs" />
+    <Compile Include="Util\Converter.cs" />
+    <Compile Include="Util\Context.cs" />
+    <Compile Include="Fields\PrFieldDate.cs" />
+    <Compile Include="Fields\PrFieldLabel.cs" />
+    <Compile Include="Filters\FieldOperatorBeginsWith.cs" />
+    <Compile Include="Filters\FieldOperatorContains.cs" />
+    <Compile Include="Filters\FieldOperatorEndsWith.cs" />
+    <Compile Include="Filters\FieldOperatorGreater.cs" />
+    <Compile Include="Filters\FieldOperatorGreaterOrEqual.cs" />
+    <Compile Include="Filters\FieldOperatorIn.cs" />
+    <Compile Include="Filters\FieldOperatorLess.cs" />
+    <Compile Include="Filters\FieldOperatorLessOrEqual.cs" />
+    <Compile Include="Filters\FieldOperatorNotBeginsWith.cs" />
+    <Compile Include="Filters\FieldOperatorNotContains.cs" />
+    <Compile Include="Filters\FieldOperatorNotEndsWith.cs" />
+    <Compile Include="Filters\FieldOperatorNotEqual.cs" />
+    <Compile Include="Filters\FieldOperatorNotIn.cs" />
+    <Compile Include="Filters\FieldValueEscaper.cs" />
+    <Compile Include="Util\Escaper.cs" />
+    <Compile Include="Util\HeadLinksAndTemplates.cs" />
+    <Compile Include="JQGrid\DataTableJQGridConv.cs" />
+    <Compile Include="Actions\AJAXActions.cs" />
+    <Compile Include="Util\Excel.cs" />
+    <Compile Include="Fields\PrFieldButton.cs" />
+    <Compile Include="Fields\PrFieldGridView.cs" />
+    <Compile Include="Fields\PrFieldMultiSelectBox.cs" />
+    <Compile Include="FormService.cs" />
+    <Compile Include="Filters\FieldOperatorEqual.cs" />
+    <Compile Include="Filters\FieldOperatorFactory.cs" />
+    <Compile Include="Filters\Filter.cs" />
+    <Compile Include="Filters\FilterFormatter.cs" />
+    <Compile Include="Filters\FilterOperatorAnd.cs" />
+    <Compile Include="Filters\FilterOperatorFactory.cs" />
+    <Compile Include="Filters\FilterOperatorOr.cs" />
+    <Compile Include="JQGrid\FilterParser.cs" />
+    <Compile Include="Filters\FilterRow.cs" />
+    <Compile Include="Filters\IFieldOperator.cs" />
+    <Compile Include="Filters\IFilterOperator.cs" />
+    <Compile Include="JQGrid\JQGrid.cs" />
+    <Compile Include="JQGrid\QueryStringFilterRule.cs" />
+    <Compile Include="JQGrid\QueryStringFilter.cs" />
+    <Compile Include="JQGrid\QueryStringInfo.cs" />
+    <Compile Include="StressTool.cs" />
+    <Compile Include="Fields\PrField.cs" />
+    <Compile Include="Fields\PrFieldCheckBoxes.cs" />
+    <Compile Include="Fields\PrFieldRadios.cs" />
+    <Compile Include="Fields\PrFieldComboBox.cs" />
+    <Compile Include="Fields\PrFieldText.cs" />
+    <Compile Include="PrForm.cs" />
+    <Compile Include="Fields\PrFieldTextArea.cs" />
+    <Compile Include="Logging\ActionLog.cs" />
+    <Compile Include="Logging\ActionLogParameter.cs" />
+    <Compile Include="Logging\ExceptionLog.cs" />
+    <Compile Include="Logging\IBaseRepository.cs" />
+    <Compile Include="Logging\BaseRepository.cs" />
+    <Compile Include="Logging\NH_PERFORMS.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\CommonRegexes.cs" />
+    <Compile Include="Util\JSON.cs" />
+    <Compile Include="Util\MIMEType.cs" />
+    <Compile Include="Util\Paths.cs" />
+    <Compile Include="Util\TimeTracker.cs" />
+    <Compile Include="Validation.cs" />
+    <Compile Include="Util\KeyValue.cs" />
+    <Compile Include="WebServiceInterface.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Logging\Mappings\ActionLog.hbm.xml" />
+    <EmbeddedResource Include="Logging\Mappings\ActionLogParameter.hbm.xml" />
+    <EmbeddedResource Include="Logging\Mappings\ExceptionLog.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

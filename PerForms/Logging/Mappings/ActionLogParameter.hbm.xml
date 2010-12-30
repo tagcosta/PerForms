@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="PerForms" namespace="PerForms.Logging">
+  <class name="ActionLogParameter" table="PrFActionLogParameter">
+    <id name="ID" column="ID">
+      <generator class="native"></generator>
+    </id>
+    <property name="Key" column="Key" />
+    <property name="Values" column="Values" />
+    <many-to-one name="ActionLog" column="ActionLogID" />
+  </class>
+</hibernate-mapping>
